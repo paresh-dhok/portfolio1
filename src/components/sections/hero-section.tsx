@@ -39,7 +39,12 @@ export function HeroSection() {
               </a>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <a href="/paresh-dhok-resume.txt" download>
+              <a
+                href="/Paresh_Resume.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Download className="mr-2 h-4 w-4" />
                 Download Resume
               </a>

@@ -83,7 +83,7 @@ export function SiteHeader() {
                   </Link>
                 ))}
                 <Button variant="outline" size="sm" className="gap-2 mt-4 w-fit" asChild>
-                  <a href="/paresh-dhok-resume.txt" download>
+                  <a href="/Paresh_Resume.pdf" download>
                     <Download className="h-4 w-4" />
                     Resume
                   </a>

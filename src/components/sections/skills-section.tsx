@@ -75,8 +75,7 @@ export function SkillsSection() {
           </p>
         </motion.div>
 
-        <Tabs defaultValue={skillCategories[0].name} className="w-full max-w-4xl mx-auto">
-          {/* Updated TabsList with flex and gap */}
+        <Tabs defaultValue={skillCategories[0].name} className="w-full max-w-4xl mx-auto min-h-[400px]">
           <TabsList className="flex flex-wrap gap-3 justify-center mb-8">
             {skillCategories.map((category) => (
               <TabsTrigger
@@ -90,13 +89,13 @@ export function SkillsSection() {
           </TabsList>
 
           {skillCategories.map((category) => (
-            <TabsContent key={category.name} value={category.name}>
+            <TabsContent key={category.name} value={category.name} className="overflow-visible">
               <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="flex flex-wrap gap-3"
+                className="flex flex-wrap gap-3 justify-center"
               >
                 {category.skills.map((skill) => (
                   <motion.div key={skill} variants={itemVariants}>

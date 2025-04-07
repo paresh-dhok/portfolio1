@@ -76,13 +76,19 @@ export function SkillsSection() {
         </motion.div>
 
         <Tabs defaultValue={skillCategories[0].name} className="w-full max-w-4xl mx-auto">
-          <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mb-8">
+          {/* Updated TabsList with flex and gap */}
+          <TabsList className="flex flex-wrap gap-3 justify-center mb-8">
             {skillCategories.map((category) => (
-              <TabsTrigger key={category.name} value={category.name} className="text-sm">
+              <TabsTrigger
+                key={category.name}
+                value={category.name}
+                className="text-sm px-4 py-2 rounded-md"
+              >
                 {category.name}
               </TabsTrigger>
             ))}
           </TabsList>
+
           {skillCategories.map((category) => (
             <TabsContent key={category.name} value={category.name}>
               <motion.div

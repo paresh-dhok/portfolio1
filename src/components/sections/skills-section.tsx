@@ -75,21 +75,27 @@ export function SkillsSection() {
           </p>
         </motion.div>
 
-        <Tabs defaultValue={skillCategories[0].name} className="w-full max-w-4xl mx-auto min-h-[400px]">
-          <TabsList className="flex flex-wrap gap-3 justify-center mb-8">
-            {skillCategories.map((category) => (
-              <TabsTrigger
-                key={category.name}
-                value={category.name}
-                className="text-sm px-4 py-2 rounded-md"
-              >
-                {category.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+        <Tabs defaultValue={skillCategories[0].name} className="w-full max-w-5xl mx-auto">
+          <div className="relative z-10">
+            <TabsList className="flex flex-wrap gap-3 justify-center mb-8">
+              {skillCategories.map((category) => (
+                <TabsTrigger
+                  key={category.name}
+                  value={category.name}
+                  className="text-sm px-4 py-2 rounded-md"
+                >
+                  {category.name}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
 
           {skillCategories.map((category) => (
-            <TabsContent key={category.name} value={category.name} className="overflow-visible">
+            <TabsContent
+              key={category.name}
+              value={category.name}
+              className="overflow-visible pt-6"
+            >
               <motion.div
                 variants={containerVariants}
                 initial="hidden"

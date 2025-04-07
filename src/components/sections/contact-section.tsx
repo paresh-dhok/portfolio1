@@ -32,7 +32,7 @@ export function ContactSection() {
     {
       icon: <FaGithub className="h-5 w-5" />,
       name: "GitHub",
-      href: "https://github.com/pareshdhok",
+      href: "https://github.com/paresh-dhok",
       color: "hover:text-gray-900 dark:hover:text-gray-300"
     },
     {

@@ -21,7 +21,7 @@ export function AboutSection() {
           <p className="text-lg text-muted-foreground mb-6">
             I'm an Electronics and Communication Engineering student at MIT World Peace University,
             specializing in AI/ML. I have a passion for developing innovative solutions
-            in IoT, embedded systems, and signal processing.
+            in AIML and its different applications, Software/Web Development, IoT, embedded systems, and signal processing.
           </p>
         </motion.div>
 

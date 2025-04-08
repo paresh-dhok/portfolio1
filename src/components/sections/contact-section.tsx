@@ -13,8 +13,8 @@ export function ContactSection() {
   const contactInfo = [
     {
       icon: <Mail className="h-5 w-5" />,
-      text: "paresh.dhok@mitwpu.edu.in",
-      href: "mailto:paresh.dhok@mitwpu.edu.in"
+      text: "pareshdhok20@gmail.com",
+      href: "mailto:pareshdhok20@gmail.com"
     },
     {
       icon: <Phone className="h-5 w-5" />,

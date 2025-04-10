@@ -16,7 +16,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Hi, I'm <span className="gradient-text">Paresh Dhok</span>
+            Hi, I'm <span className="gradient-text">DICKVIJAY</span>
           </motion.h1>
           <motion.p
             className="text-xl text-muted-foreground"

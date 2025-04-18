@@ -37,20 +37,20 @@ export function AboutSection() {
 
         {/* Profile Image and Cards Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {/* Profile Photo */}
+          {/* Profile Photo with Animation */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+            initial={{ opacity: 0, scale: 0.7, rotate: -5 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mx-auto"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex items-center justify-center"
           >
             <Image
               src="/Profile_Photo.jpg"
               alt="Profile Photo"
               width={300}
               height={300}
-              className="rounded-2xl shadow-lg border border-muted-foreground"
+              className="rounded-2xl shadow-xl border border-muted-foreground"
             />
           </motion.div>
 

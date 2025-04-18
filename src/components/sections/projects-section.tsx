@@ -133,15 +133,19 @@ export function ProjectsSection() {
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow p-6">
-                  {project.image && (
+                  {project.image ? (
                     <img src={project.image} alt={project.title} className="w-full h-auto rounded-lg mb-4" />
+                  ) : (
+                    <div className="w-full h-60 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+                      <span className="text-gray-500">No Image Available</span>
+                    </div>
                   )}
-                  {project.video && (
+                  {project.video ? (
                     <video controls className="w-full rounded-lg mb-4">
                       <source src={project.video} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
-                  )}
+                  ) : null}
                   <p className="text-sm text-muted-foreground mb-4">{project.period}</p>
                   <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground">
                     {project.highlights.map((highlight) => (

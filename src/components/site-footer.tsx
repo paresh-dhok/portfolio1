@@ -1,3 +1,5 @@
+'use client'; // Marking this file as a client-side component
+
 import { useEffect, useState } from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";

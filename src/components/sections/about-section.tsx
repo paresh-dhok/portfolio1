@@ -4,6 +4,7 @@ import React from "react"
 import { Separator } from "@/components/ui/separator"
 import { FaGraduationCap } from "react-icons/fa"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 const hoverCardVariants = {
   rest: { scale: 1, boxShadow: "0px 0px 0px rgba(0,0,0,0)" },
@@ -34,7 +35,25 @@ export function AboutSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Profile Image and Cards Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          {/* Profile Photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto"
+          >
+            <Image
+              src="/Profile_Photo.jpg"
+              alt="Profile Photo"
+              width={300}
+              height={300}
+              className="rounded-2xl shadow-lg border border-muted-foreground"
+            />
+          </motion.div>
+
           {/* Education Card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -45,7 +64,7 @@ export function AboutSection() {
             whileHover="hover"
             whileTap="hover"
             animate="rest"
-            className="bg-white dark:bg-card p-6 rounded-2xl shadow-md border transition-all"
+            className="bg-white dark:bg-card p-6 rounded-2xl shadow-md border transition-all col-span-2"
           >
             <h3 className="text-2xl font-semibold flex items-center gap-2 mb-6">
               <FaGraduationCap className="text-primary" /> Education
@@ -76,19 +95,17 @@ export function AboutSection() {
               ))}
             </ul>
           </motion.div>
+        </div>
 
-          {/* Positions of Responsibility Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            variants={hoverCardVariants}
-            whileHover="hover"
-            whileTap="hover"
-            animate="rest"
-            className="bg-white dark:bg-card p-6 rounded-2xl shadow-md border transition-all"
-          >
+        {/* Positions of Responsibility */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-12"
+        >
+          <div className="bg-white dark:bg-card p-6 rounded-2xl shadow-md border transition-all">
             <h3 className="text-2xl font-semibold mb-6">Positions of Responsibility</h3>
             <ul className="space-y-8">
               <li>
@@ -110,8 +127,8 @@ export function AboutSection() {
                 </ul>
               </li>
             </ul>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

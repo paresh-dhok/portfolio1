@@ -31,7 +31,7 @@ export function SkillsSection() {
     },
     {
       name: "Developer Tools",
-      skills: ["Matlab", "Simullink", "VS Code", "PyCharm", "Proteus"]
+      skills: ["Matlab", "Simulink", "VS Code", "PyCharm", "Proteus"]
     },
     {
       name: "Libraries & SDKs",
@@ -43,7 +43,9 @@ export function SkillsSection() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.08 }
+      transition: {
+        staggerChildren: 0.1
+      }
     }
   };
 
@@ -52,35 +54,38 @@ export function SkillsSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.4, ease: "easeOut" }
+      transition: { duration: 0.5 }
     }
   };
 
+  const slugify = (text: string) =>
+    text.toLowerCase().replace(/\s+/g, "-");
+
   return (
-    <section id="skills" className="py-20 md:py-28 bg-background">
-      <div className="container">
+    <section id="skills" className="py-20 md:py-28 bg-gradient-to-br from-background to-muted">
+      <div className="container px-4">
         <motion.div
           className="text-center max-w-3xl mx-auto mb-14"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold tracking-tight mb-4 text-foreground">Technical Skills</h2>
+          <h2 className="text-4xl font-bold mb-4 text-primary">Technical Skills</h2>
           <Separator className="mx-auto w-20 mb-6 bg-primary" />
-          <p className="text-muted-foreground text-lg">
-            A diverse set of tools, platforms, and programming languages that empower me to build effective tech solutions.
+          <p className="text-lg text-muted-foreground">
+            My expertise spans programming, hardware systems, and technical tools.
           </p>
         </motion.div>
 
-        <Tabs defaultValue={skillCategories[0].name} className="w-full max-w-5xl mx-auto">
+        <Tabs defaultValue={slugify(skillCategories[0].name)} className="w-full max-w-5xl mx-auto">
           <div className="relative z-10">
-            <TabsList className="flex flex-wrap justify-center gap-4 mb-8">
+            <TabsList className="flex flex-wrap gap-3 justify-center mb-10">
               {skillCategories.map((category) => (
                 <TabsTrigger
                   key={category.name}
-                  value={category.name}
-                  className="text-sm font-medium px-4 py-2 rounded-full border hover:bg-muted transition duration-200"
+                  value={slugify(category.name)}
+                  className="text-sm px-4 py-2 rounded-xl bg-muted/60 hover:bg-muted transition-all"
                 >
                   {category.name}
                 </TabsTrigger>
@@ -91,21 +96,21 @@ export function SkillsSection() {
           {skillCategories.map((category) => (
             <TabsContent
               key={category.name}
-              value={category.name}
-              className="overflow-visible pt-2"
+              value={slugify(category.name)}
+              className="overflow-visible pt-6 data-[state=active]:block hidden"
             >
               <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="flex flex-wrap justify-center gap-3"
+                className="flex flex-wrap gap-4 justify-center"
               >
                 {category.skills.map((skill) => (
                   <motion.div key={skill} variants={itemVariants}>
                     <Badge
+                      className="px-4 py-2 text-sm rounded-full bg-secondary hover:bg-primary hover:text-white transition-all duration-300"
                       variant="secondary"
-                      className="px-3 py-1 text-sm rounded-full shadow hover:scale-105 transition-transform duration-200 hover:shadow-md"
                     >
                       {skill}
                     </Badge>
@@ -117,5 +122,5 @@ export function SkillsSection() {
         </Tabs>
       </div>
     </section>
-  );
+  )
 }

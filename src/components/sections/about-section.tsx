@@ -166,11 +166,11 @@ export function AboutSection() {
           variants={cardVariants}
           initial="hidden"
           whileInView="visible"
+          whileHover="hover"
           viewport={{ once: true }}
           className="mt-12"
         >
           <motion.div
-            whileHover="hover"
             className="bg-card p-6 rounded-2xl shadow-lg border border-muted-foreground/20 relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity" />
@@ -211,29 +211,32 @@ export function AboutSection() {
               ].map((role: Position, index) => (
                 <motion.li
                   key={index}
+                  className="space-y-4"
                   variants={listItemVariants}
                   custom={index}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                 >
-                  <div className="space-y-2">
+                  <div className="space-y-1 relative pl-6 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-primary/80 before:rounded-full">
                     <h4 className="text-lg font-medium">{role.title}</h4>
                     <p className="text-muted-foreground">{role.org}</p>
                     <p className="text-sm text-muted-foreground/80">{role.time}</p>
-                    <ul className="list-disc list-inside space-y-2 pl-4">
-                      {role.points.map((point, i) => (
-                        <motion.li
-                          key={i}
-                          className="text-muted-foreground/80 relative before:absolute before:-left-4 before:top-2 before:w-1.5 before:h-1.5 before:bg-primary/80 before:rounded-full"
-                          variants={listItemVariants}
-                          custom={i + 0.5}
-                        >
-                          {point}
-                        </motion.li>
-                      ))}
-                    </ul>
                   </div>
+                  <ul className="list-disc list-inside space-y-2 pl-4">
+                    {role.points.map((point, i) => (
+                      <motion.li
+                        key={i}
+                        className="text-muted-foreground/80 relative pl-4 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-primary/80 before:rounded-full"
+                        variants={listItemVariants}
+                        custom={i + 0.5}
+                        initial="hidden"
+                        whileInView="visible"
+                      >
+                        {point}
+                      </motion.li>
+                    ))}
+                  </ul>
                 </motion.li>
               ))}
             </ul>

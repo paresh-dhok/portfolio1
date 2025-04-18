@@ -23,6 +23,18 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 }
 
+const nameVariant = {
+  hidden: { opacity: 0, x: -10 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+}
+
 export function HeroSection() {
   return (
     <section className="py-20 md:py-32 hero-bg">
@@ -34,7 +46,13 @@ export function HeroSection() {
           animate="visible"
         >
           <motion.h1 className="responsive-heading" variants={itemVariants}>
-            Hi, I'm <span className="gradient-text">Paresh Dhok</span>
+            Hi, I'm{" "}
+            <motion.span
+              className="gradient-text inline-block"
+              variants={nameVariant}
+            >
+              Paresh Dhok
+            </motion.span>
           </motion.h1>
 
           <motion.p

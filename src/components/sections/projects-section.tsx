@@ -15,6 +15,8 @@ interface Project {
   period: string
   highlights: string[]
   githubLink?: string
+  image?: string
+  video?: string
 }
 
 export function ProjectsSection() {
@@ -28,7 +30,8 @@ export function ProjectsSection() {
         "Developed an AI-driven system that adapts room ambiance based on the user's mood, including music, lighting",
         "Integrated Arduino and IoT components to control smart lights, speakers, and aroma diffusers using Intel OpenVino"
       ],
-      githubLink: "https://github.com/pareshdhok"
+      githubLink: "https://github.com/pareshdhok",
+      image: "/public/MoodE.jpeg"
     },
     {
       title: "Scout Rover",
@@ -39,7 +42,8 @@ export function ProjectsSection() {
         "Designed a wireless control system to operate the Scout Rover using a gamepad for variable speed control and directional movement",
         "Integrated ultrasonic sensors, IR sensors, and MPU6050 for obstacle avoidance and motion stability with gas and temperature sensors, plus a LiDAR sensor to scan surroundings and generate 2D maps in MATLAB"
       ],
-      githubLink: "https://github.com/pareshdhok"
+      githubLink: "https://github.com/pareshdhok",
+      image: "/public/Scout_Rover.jpg"
     },
     {
       title: "JARVIS",
@@ -50,7 +54,8 @@ export function ProjectsSection() {
         "Built an offline voice-controlled system to operate home automation devices without needing internet",
         "Developed a custom voice control system that allows users to modify voice commands for each action"
       ],
-      githubLink: "https://github.com/pareshdhok"
+      githubLink: "https://github.com/pareshdhok",
+      image: "/public/Jarvis.jpeg"
     },
     {
       title: "Signal Generator",
@@ -61,7 +66,8 @@ export function ProjectsSection() {
         "Designed a signal generation system to visualize and analyze different modulation techniques in real time",
         "Implemented AM (DSBSC, DSBFC, SSB), FM and PM in Python for visualization"
       ],
-      githubLink: "https://github.com/pareshdhok"
+      githubLink: "https://github.com/pareshdhok",
+      image: "/public/Signal_Generator.jpg"
     },
     {
       title: "Home Automation System",
@@ -72,7 +78,8 @@ export function ProjectsSection() {
         "Designed and developed a home automation system with mobile-controlled operations using ESP8266",
         "Implemented automatic garage gate control using a Wi-Fi-based system for seamless entry and exit"
       ],
-      githubLink: "https://github.com/pareshdhok"
+      githubLink: "https://github.com/pareshdhok",
+      video: "/public/Home_Automation.mp4"
     }
   ];
 
@@ -126,6 +133,15 @@ export function ProjectsSection() {
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow p-6">
+                  {project.image && (
+                    <img src={project.image} alt={project.title} className="w-full h-auto rounded-lg mb-4" />
+                  )}
+                  {project.video && (
+                    <video controls className="w-full rounded-lg mb-4">
+                      <source src={project.video} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  )}
                   <p className="text-sm text-muted-foreground mb-4">{project.period}</p>
                   <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground">
                     {project.highlights.map((highlight) => (

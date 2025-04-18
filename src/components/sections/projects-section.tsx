@@ -31,7 +31,7 @@ export function ProjectsSection() {
         "Integrated Arduino and IoT components to control smart lights, speakers, and aroma diffusers using Intel OpenVino"
       ],
       githubLink: "https://github.com/pareshdhok",
-      image: "/public/MoodE.jpeg"
+      image: "/MoodE.jpeg"  // Updated image path
     },
     {
       title: "Scout Rover",
@@ -43,7 +43,7 @@ export function ProjectsSection() {
         "Integrated ultrasonic sensors, IR sensors, and MPU6050 for obstacle avoidance and motion stability with gas and temperature sensors, plus a LiDAR sensor to scan surroundings and generate 2D maps in MATLAB"
       ],
       githubLink: "https://github.com/pareshdhok",
-      image: "/public/Scout_Rover.jpg"
+      image: "/Scout_Rover.jpg"  // Updated image path
     },
     {
       title: "JARVIS",
@@ -55,7 +55,7 @@ export function ProjectsSection() {
         "Developed a custom voice control system that allows users to modify voice commands for each action"
       ],
       githubLink: "https://github.com/pareshdhok",
-      image: "/public/Jarvis.jpeg"
+      image: "/Jarvis.jpeg"  // Updated image path
     },
     {
       title: "Signal Generator",
@@ -67,7 +67,7 @@ export function ProjectsSection() {
         "Implemented AM (DSBSC, DSBFC, SSB), FM and PM in Python for visualization"
       ],
       githubLink: "https://github.com/pareshdhok",
-      image: "/public/Signal_Generator.jpg"
+      image: "/Signal_Generator.jpg"  // Updated image path
     },
     {
       title: "Home Automation System",
@@ -79,7 +79,7 @@ export function ProjectsSection() {
         "Implemented automatic garage gate control using a Wi-Fi-based system for seamless entry and exit"
       ],
       githubLink: "https://github.com/pareshdhok",
-      video: "/public/Home_Automation.mp4"
+      video: "/Home_Automation.mp4"  // Video path
     }
   ];
 

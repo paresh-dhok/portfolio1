@@ -5,6 +5,15 @@ import { Separator } from "@/components/ui/separator"
 import { FaGraduationCap } from "react-icons/fa"
 import { motion } from "framer-motion"
 
+const hoverCardVariants = {
+  rest: { scale: 1, boxShadow: "0px 0px 0px rgba(0,0,0,0)" },
+  hover: {
+    scale: 1.03,
+    boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.12)",
+    transition: { duration: 0.3 },
+  },
+}
+
 export function AboutSection() {
   return (
     <section id="about" className="py-16 md:py-24 bg-muted/10">
@@ -32,7 +41,11 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white dark:bg-card p-6 rounded-2xl shadow-md border"
+            variants={hoverCardVariants}
+            whileHover="hover"
+            whileTap="hover"
+            animate="rest"
+            className="bg-white dark:bg-card p-6 rounded-2xl shadow-md border transition-all"
           >
             <h3 className="text-2xl font-semibold flex items-center gap-2 mb-6">
               <FaGraduationCap className="text-primary" /> Education
@@ -70,7 +83,11 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-white dark:bg-card p-6 rounded-2xl shadow-md border"
+            variants={hoverCardVariants}
+            whileHover="hover"
+            whileTap="hover"
+            animate="rest"
+            className="bg-white dark:bg-card p-6 rounded-2xl shadow-md border transition-all"
           >
             <h3 className="text-2xl font-semibold mb-6">Positions of Responsibility</h3>
             <ul className="space-y-8">

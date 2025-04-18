@@ -9,16 +9,16 @@ import Image from "next/image"
 const hoverCardVariants = {
   rest: { scale: 1, boxShadow: "0px 0px 0px rgba(0,0,0,0)" },
   hover: {
-    scale: 1.03,
-    boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.12)",
-    transition: { duration: 0.3 },
+    scale: 1.05,
+    boxShadow: "0px 10px 25px rgba(0, 0, 0, 0.1)",
+    transition: { duration: 0.4 },
   },
 }
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-16 md:py-24 bg-muted/10">
-      <div className="container">
+    <section id="about" className="py-16 md:py-24 bg-gradient-to-r from-blue-50 to-blue-100">
+      <div className="container px-4">
         <motion.div
           className="text-center max-w-3xl mx-auto mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -26,12 +26,11 @@ export function AboutSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-4">About Me</h2>
+          <h2 className="text-4xl font-semibold text-primary mb-4">About Me</h2>
           <Separator className="mx-auto w-20 mb-8" />
           <p className="text-lg text-muted-foreground">
-            I'm an Electronics and Communication Engineering student at MIT World Peace University,
-            specializing in AI/ML. I’m passionate about building innovative solutions using AI/ML in Electronics,
-            Software/Web Development, IoT, Embedded Systems, and Signal Processing.
+            I'm an Electronics and Communication Engineering student at MIT World Peace University, specializing in AI/ML.
+            Passionate about building innovative solutions using AI/ML in Electronics, Software/Web Development, IoT, Embedded Systems, and Signal Processing.
           </p>
         </motion.div>
 
@@ -50,7 +49,7 @@ export function AboutSection() {
               alt="Profile Photo"
               width={300}
               height={300}
-              className="rounded-2xl shadow-xl border border-muted-foreground"
+              className="rounded-full shadow-lg border-4 border-primary transition-transform duration-500 hover:scale-105"
             />
           </motion.div>
 
@@ -64,9 +63,9 @@ export function AboutSection() {
             whileHover="hover"
             whileTap="hover"
             animate="rest"
-            className="bg-white dark:bg-card p-6 rounded-2xl shadow-md border transition-all col-span-2"
+            className="bg-white dark:bg-card p-6 rounded-2xl shadow-xl border transition-all col-span-2"
           >
-            <h3 className="text-2xl font-semibold flex items-center gap-2 mb-6">
+            <h3 className="text-2xl font-semibold flex items-center gap-2 mb-6 text-primary">
               <FaGraduationCap className="text-primary" /> Education
             </h3>
             <ul className="space-y-6">
@@ -88,7 +87,7 @@ export function AboutSection() {
                 }
               ].map((edu, index) => (
                 <li key={index} className="space-y-1">
-                  <h4 className="text-lg font-medium">{edu.degree}</h4>
+                  <h4 className="text-lg font-medium text-primary">{edu.degree}</h4>
                   <p className="text-muted-foreground">{edu.institute}</p>
                   <p className="text-sm text-muted-foreground">{edu.time}</p>
                 </li>
@@ -105,8 +104,8 @@ export function AboutSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-12"
         >
-          <div className="bg-white dark:bg-card p-6 rounded-2xl shadow-md border transition-all">
-            <h3 className="text-2xl font-semibold mb-6">Positions of Responsibility</h3>
+          <div className="bg-white dark:bg-card p-6 rounded-2xl shadow-xl border transition-all">
+            <h3 className="text-2xl font-semibold mb-6 text-primary">Positions of Responsibility</h3>
             <ul className="space-y-8">
               <li>
                 <h4 className="text-lg font-medium">Vice President and Founder</h4>

@@ -1,56 +1,39 @@
-"use client"
+"use client";
 
-import React from "react"
-import { Separator } from "@/components/ui/separator"
-import { FaGraduationCap } from "react-icons/fa"
-import { motion } from "framer-motion"
-import Image from "next/image"
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { FaGraduationCap } from "react-icons/fa";
 
 const hoverCardVariants = {
-  rest: { scale: 1, boxShadow: "0px 0px 0px rgba(0,0,0,0)" },
+  rest: { scale: 1 },
   hover: {
-    scale: 1.05,
-    boxShadow: "0px 10px 25px rgba(0, 0, 0, 0.1)",
-    transition: { duration: 0.4 },
+    scale: 1.02,
+    transition: { duration: 0.3, ease: "easeInOut" },
   },
-}
+};
 
-export function AboutSection() {
+export default function Education() {
   return (
-    <section id="about" className="py-16 md:py-24 bg-gradient-to-r from-blue-50 to-blue-100">
-      <div className="container px-4">
-        <motion.div
-          className="text-center max-w-3xl mx-auto mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-4xl font-semibold text-primary mb-4">About Me</h2>
-          <Separator className="mx-auto w-20 mb-8" />
-          <p className="text-lg text-muted-foreground">
-            I'm an Electronics and Communication Engineering student at MIT World Peace University, specializing in AI/ML.
-            Passionate about building innovative solutions using AI/ML in Electronics, Software/Web Development, IoT, Embedded Systems, and Signal Processing.
-          </p>
-        </motion.div>
-
-        {/* Profile Image and Cards Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {/* Profile Photo with Animation */}
+    <section className="w-full py-20 md:py-28 px-4 sm:px-8 md:px-16 bg-background">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+          {/* Profile Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.7, rotate: -5 }}
+            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex items-center justify-center"
           >
-            <Image
-              src="/Profile_Photo.jpg"
-              alt="Profile Photo"
-              width={300}
-              height={300}
-              className="rounded-full shadow-lg border-4 border-primary transition-transform duration-500 hover:scale-105"
-            />
+            <div className="bg-background rounded-2xl shadow-lg p-4 border">
+              <Image
+                src="/Profile_Photo.jpg"
+                alt="Profile Photo"
+                width={250}
+                height={250}
+                className="rounded-2xl"
+              />
+            </div>
           </motion.div>
 
           {/* Education Card */}
@@ -58,36 +41,40 @@ export function AboutSection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
             variants={hoverCardVariants}
             whileHover="hover"
             whileTap="hover"
             animate="rest"
-            className="bg-white dark:bg-card p-6 rounded-2xl shadow-xl border transition-all col-span-2"
+            className="bg-background p-6 rounded-2xl shadow-lg border transition-all md:col-span-2"
           >
-            <h3 className="text-2xl font-semibold flex items-center gap-2 mb-6 text-primary">
+            <h3 className="text-2xl font-semibold flex items-center gap-2 mb-6">
               <FaGraduationCap className="text-primary" /> Education
             </h3>
             <ul className="space-y-6">
-              {[ 
+              {[
                 {
-                  degree: "B.Tech in Electronics and Communication Engineering with AIML",
+                  degree:
+                    "B.Tech in Electronics and Communication Engineering with AIML",
                   institute: "MIT World Peace University",
-                  time: "Aug 2023 - May 2027"
+                  time: "Aug 2023 - May 2027",
                 },
                 {
                   degree: "Higher Secondary Certificate",
-                  institute: "Gurukul Public School & Junior College Of Science",
-                  time: "Aug 2020 - June 2022"
+                  institute:
+                    "Gurukul Public School & Junior College Of Science",
+                  time: "Aug 2020 - June 2022",
                 },
                 {
                   degree: "Secondary School Certificate",
                   institute: "Raisaheb Moti Sangai English School",
-                  time: "June 2019 - April 2020"
-                }
+                  time: "June 2019 - April 2020",
+                },
               ].map((edu, index) => (
                 <li key={index} className="space-y-1">
-                  <h4 className="text-lg font-medium text-primary">{edu.degree}</h4>
+                  <h4 className="text-lg font-medium text-foreground">
+                    {edu.degree}
+                  </h4>
                   <p className="text-muted-foreground">{edu.institute}</p>
                   <p className="text-sm text-muted-foreground">{edu.time}</p>
                 </li>
@@ -98,37 +85,61 @@ export function AboutSection() {
 
         {/* Positions of Responsibility */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12"
+          transition={{ duration: 0.7 }}
+          className="mt-16"
         >
-          <div className="bg-white dark:bg-card p-6 rounded-2xl shadow-xl border transition-all">
-            <h3 className="text-2xl font-semibold mb-6 text-primary">Positions of Responsibility</h3>
+          <div className="bg-background p-6 rounded-2xl shadow-lg border transition-all">
+            <h3 className="text-2xl font-semibold mb-6">
+              Positions of Responsibility
+            </h3>
             <ul className="space-y-8">
-              <li>
-                <h4 className="text-lg font-medium">Vice President and Founder</h4>
-                <p className="text-muted-foreground">Student Club - Prismlabs, MIT-WPU</p>
-                <p className="text-sm text-muted-foreground mb-2">Feb 2025 - Present</p>
-                <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                  <li>Led club expansion into hackathons, workshops & hands-on AI/ML, IoT training</li>
-                  <li>Strategized marketing & recruitment to grow community reach</li>
-                </ul>
-              </li>
-              <li>
-                <h4 className="text-lg font-medium">SY Coordinator</h4>
-                <p className="text-muted-foreground">Student Club - InsightAI, MIT-WPU</p>
-                <p className="text-sm text-muted-foreground mb-2">July 2024 - Present</p>
-                <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                  <li>Collaborated with technical clubs to expand AI/ML opportunities</li>
-                  <li>Managed second-year activities and event coordination</li>
-                </ul>
-              </li>
+              {[
+                {
+                  title: "Vice President and Founder",
+                  org: "Student Club - Prismlabs, MIT-WPU",
+                  time: "Feb 2025 - Present",
+                  points: [
+                    "Led club expansion into hackathons, workshops & hands-on AI/ML, IoT training",
+                    "Strategized marketing & recruitment to grow community reach",
+                  ],
+                },
+                {
+                  title: "SY Coordinator",
+                  org: "Student Club - InsightAI, MIT-WPU",
+                  time: "July 2024 - Present",
+                  points: [
+                    "Collaborated with technical clubs to expand AI/ML opportunities",
+                    "Managed second-year activities and event coordination",
+                  ],
+                },
+              ].map((role, index) => (
+                <motion.li
+                  key={index}
+                  whileHover={{ scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                  className="p-4 rounded-xl border hover:shadow-md bg-background transition-colors"
+                >
+                  <h4 className="text-lg font-medium text-foreground">
+                    {role.title}
+                  </h4>
+                  <p className="text-muted-foreground">{role.org}</p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    {role.time}
+                  </p>
+                  <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
+                    {role.points.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                </motion.li>
+              ))}
             </ul>
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

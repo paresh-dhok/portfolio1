@@ -5,125 +5,116 @@ import { Separator } from "@/components/ui/separator"
 import { Card, CardContent } from "@/components/ui/card"
 import { TrophyIcon } from "lucide-react"
 import { motion } from "framer-motion"
-import Image from "next/image"
+import Image from "next/image" // ✅ Suggested import added
+import { cn } from "@/lib/utils"
 
 interface Achievement {
-  title: string
-  description: string
-  imagePath: string
-  imageAlt: string
+    title: string;
+    description: string;
+    imagePath: string;
+    imageAlt: string;
 }
 
 export function AchievementsSection() {
-  const achievements: Achievement[] = [
-    {
-      title: "First Prize in PBL Project Competition",
-      description: "Received first prize in Project Based Learning competition at MIT-WPU in First Year",
-      imagePath: "/PBL_Prize.jpg",
-      imageAlt: "PBL Project Competition Prize"
-    },
-    {
-      title: "Appreciation Prize in HackMITWPU25 Hackathon",
-      description: "Received appreciation prize in the Ideathon track of HackMITWPU25 hackathon",
-      imagePath: "/Hackathon.jpg",
-      imageAlt: "HackMITWPU25 Hackathon Prize"
-    }
-  ];
+    const achievements: Achievement[] = [
+        {
+            title: "First Prize in PBL Project Competition",
+            description: "Received first prize in Project Based Learning competition at MIT-WPU in First Year",
+            imagePath: "/PBL_Prize.jpg",
+            imageAlt: "PBL Project Competition Prize"
+        },
+        {
+            title: "Appreciation Prize in HackMITWPU25 Hackathon",
+            description: "Received appreciation prize in the Ideathon track of HackMITWPU25 hackathon",
+            imagePath: "/Hackathon.jpg",
+            imageAlt: "HackMITWPU25 Hackathon Prize"
+        }
+    ];
 
-  return (
-    <section id="achievements" className="py-16 md:py-24 bg-gradient-to-b from-background via-secondary/20 to-background">
-      <div className="container">
-        <motion.div
-          className="text-center max-w-3xl mx-auto mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <motion.h2 
-            className="text-3xl font-bold mb-4"
-            whileHover={{ scale: 1.02 }}
-          >
-            Achievements
-          </motion.h2>
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <Separator className="mx-auto w-20 mb-8 bg-primary/80 h-[2px]" />
-          </motion.div>
-          <motion.p 
-            className="text-lg text-muted-foreground mb-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            Recognition and awards that showcase my technical abilities and commitment to excellence.
-          </motion.p>
-        </motion.div>
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3, // Stagger the appearance of child elements
+            },
+        },
+    };
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {achievements.map((achievement, index) => (
-            <motion.div
-              key={achievement.title}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-              transition={{ 
-                duration: 0.6, 
-                delay: index * 0.15,
-                ease: [0.16, 1, 0.3, 1]
-              }}
-              whileHover={{ y: -5 }}
-            >
-              <Card className="h-full group relative overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <CardContent className="pt-6 flex flex-col gap-4">
-                  <motion.div 
-                    className="flex items-start gap-4"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.2 + 0.3 }}
-                  >
-                    <motion.div
-                      className="bg-primary/10 p-3 rounded-full"
-                      whileHover={{ rotate: [0, -10, 10, 0] }}
-                    >
-                      <TrophyIcon className="h-6 w-6 text-primary" />
-                    </motion.div>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2">{achievement.title}</h3>
-                      <p className="text-muted-foreground">{achievement.description}</p>
-                    </div>
-                  </motion.div>
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeInOut" } },
+    };
 
-                  <motion.div 
-                    className="mt-4 overflow-hidden rounded-xl"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.2 + 0.4 }}
-                  >
-                    <Image
-                      src={achievement.imagePath}
-                      alt={achievement.imageAlt}
-                      width={500}
-                      height={300}
-                      className="rounded-xl shadow-md object-cover transform transition-transform duration-300 group-hover:scale-[1.02]"
-                    />
-                  </motion.div>
-                </CardContent>
+    return (
+        <section id="achievements" className="py-16 md:py-24 bg-gradient-to-br from-secondary/30 to-secondary/10">
+            <div className="container">
+                <motion.div
+                    className="text-center max-w-3xl mx-auto mb-12"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                >
+                    <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+                        Achievements
+                    </h2>
+                    <Separator className="mx-auto w-32 mb-8 bg-gradient-to-r from-purple-500 to-pink-500" />
+                    <p className="text-lg text-gray-400 mb-8">
+                        Recognition and awards that showcase my technical abilities and commitment to excellence.
+                    </p>
+                </motion.div>
 
-                {/* Animated background effect */}
-                <motion.div 
-                  className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-                  initial={{ scale: 0.8 }}
-                  whileHover={{ scale: 1 }}
-                />
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+                <motion.div
+                    className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                >
+                    {achievements.map((achievement, index) => (
+                        <motion.div
+                            key={achievement.title}
+                            variants={itemVariants}
+                            className="transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+                        >
+                            <Card
+                                className={cn(
+                                    "h-full bg-white/5 backdrop-blur-md border border-white/10",
+                                    "shadow-xl hover:shadow-2xl transition-all duration-300",
+                                    "hover:border-purple-500/20 hover:scale-[1.01]" // Added hover effect
+                                  )}
+                            >
+                                <CardContent className="pt-6 flex flex-col gap-6">
+                                    <div className="flex items-start gap-6">
+                                        <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 p-4 rounded-full shadow-md">
+                                            <TrophyIcon className="h-8 w-8 text-purple-400 animate-pulse" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-2xl font-semibold mb-3 text-white">
+                                                {achievement.title}
+                                            </h3>
+                                            <p className="text-gray-300 leading-relaxed">
+                                                {achievement.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    {/* ✅ Image Section */}
+                                    <div className="mt-4 rounded-lg overflow-hidden shadow-md border border-white/10">
+                                        <Image
+                                            src={achievement.imagePath}
+                                            alt={achievement.imageAlt}
+                                            width={500}
+                                            height={300}
+                                            className="w-full h-auto object-cover transition-transform duration-500 hover:scale-110" // Added hover effect
+                                        />
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </div>
+        </section>
+    );
 }

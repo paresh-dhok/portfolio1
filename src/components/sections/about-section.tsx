@@ -1,83 +1,123 @@
-"use client";
+"use client"
 
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { FaGraduationCap } from "react-icons/fa";
+import React from "react"
+import { Separator } from "@/components/ui/separator"
+import { FaGraduationCap } from "react-icons/fa"
+import { motion } from "framer-motion"
+import Image from "next/image"
 
 const hoverCardVariants = {
-  rest: { scale: 1 },
+  rest: { scale: 1, boxShadow: "0px 0px 0px rgba(0,0,0,0)" },
   hover: {
-    scale: 1.02,
-    transition: { duration: 0.3, ease: "easeInOut" },
+    scale: 1.03,
+    boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.15)",
+    transition: { duration: 0.3 },
   },
-};
+}
 
-export default function Education() {
+const slideUpFade = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+}
+
+export function AboutSection() {
   return (
-    <section className="w-full py-20 md:py-28 px-4 sm:px-8 md:px-16 bg-background">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-          {/* Profile Image */}
+    <section id="about" className="py-16 md:py-24 bg-muted/10">
+      <div className="container">
+        <motion.div
+          className="text-center max-w-3xl mx-auto mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-3xl font-bold mb-4">About Me</h2>
+          <Separator className="mx-auto w-20 mb-8" />
+          <p className="text-lg text-muted-foreground">
+            I'm an Electronics and Communication Engineering student at MIT World Peace University,
+            specializing in AI/ML. I’m passionate about building innovative solutions using AI/ML in Electronics,
+            Software/Web Development, IoT, Embedded Systems, and Signal Processing.
+          </p>
+        </motion.div>
+
+        {/* Profile Image and Cards Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          {/* Profile Photo with Bounce Animation */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.9, y: 10 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            whileHover={{ y: -10 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="flex items-center justify-center"
           >
-            <div className="bg-background rounded-2xl shadow-lg p-4 border">
-              <Image
-                src="/Profile_Photo.jpg"
-                alt="Profile Photo"
-                width={250}
-                height={250}
-                className="rounded-2xl"
-              />
-            </div>
+            <Image
+              src="/Profile_Photo.jpg"
+              alt="Profile Photo"
+              width={300}
+              height={300}
+              className="rounded-2xl shadow-xl border border-muted-foreground"
+            />
           </motion.div>
 
           {/* Education Card */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             variants={hoverCardVariants}
+            initial="rest"
             whileHover="hover"
             whileTap="hover"
             animate="rest"
-            className="bg-background p-6 rounded-2xl shadow-lg border transition-all md:col-span-2"
+            className="bg-white dark:bg-card p-6 rounded-2xl shadow-md border transition-all col-span-2"
           >
-            <h3 className="text-2xl font-semibold flex items-center gap-2 mb-6">
+            <motion.h3
+              className="text-2xl font-semibold flex items-center gap-2 mb-6"
+              variants={slideUpFade}
+              initial="hidden"
+              whileInView="visible"
+              custom={0}
+              viewport={{ once: true }}
+            >
               <FaGraduationCap className="text-primary" /> Education
-            </h3>
+            </motion.h3>
             <ul className="space-y-6">
               {[
                 {
-                  degree:
-                    "B.Tech in Electronics and Communication Engineering with AIML",
+                  degree: "B.Tech in Electronics and Communication Engineering with AIML",
                   institute: "MIT World Peace University",
-                  time: "Aug 2023 - May 2027",
+                  time: "Aug 2023 - May 2027"
                 },
                 {
                   degree: "Higher Secondary Certificate",
-                  institute:
-                    "Gurukul Public School & Junior College Of Science",
-                  time: "Aug 2020 - June 2022",
+                  institute: "Gurukul Public School & Junior College Of Science",
+                  time: "Aug 2020 - June 2022"
                 },
                 {
                   degree: "Secondary School Certificate",
                   institute: "Raisaheb Moti Sangai English School",
-                  time: "June 2019 - April 2020",
-                },
+                  time: "June 2019 - April 2020"
+                }
               ].map((edu, index) => (
-                <li key={index} className="space-y-1">
-                  <h4 className="text-lg font-medium text-foreground">
-                    {edu.degree}
-                  </h4>
+                <motion.li
+                  key={index}
+                  className="space-y-1"
+                  variants={slideUpFade}
+                  initial="hidden"
+                  whileInView="visible"
+                  custom={index + 1}
+                  viewport={{ once: true }}
+                >
+                  <h4 className="text-lg font-medium">{edu.degree}</h4>
                   <p className="text-muted-foreground">{edu.institute}</p>
                   <p className="text-sm text-muted-foreground">{edu.time}</p>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
@@ -85,16 +125,31 @@ export default function Education() {
 
         {/* Positions of Responsibility */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={slideUpFade}
+          initial="hidden"
+          whileInView="visible"
+          custom={0}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mt-16"
+          className="mt-12"
         >
-          <div className="bg-background p-6 rounded-2xl shadow-lg border transition-all">
-            <h3 className="text-2xl font-semibold mb-6">
+          <motion.div
+            variants={hoverCardVariants}
+            initial="rest"
+            whileHover="hover"
+            whileTap="hover"
+            animate="rest"
+            className="bg-white dark:bg-card p-6 rounded-2xl shadow-md border transition-all"
+          >
+            <motion.h3
+              className="text-2xl font-semibold mb-6"
+              variants={slideUpFade}
+              initial="hidden"
+              whileInView="visible"
+              custom={1}
+              viewport={{ once: true }}
+            >
               Positions of Responsibility
-            </h3>
+            </motion.h3>
             <ul className="space-y-8">
               {[
                 {
@@ -118,17 +173,15 @@ export default function Education() {
               ].map((role, index) => (
                 <motion.li
                   key={index}
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                  className="p-4 rounded-xl border hover:shadow-md bg-background transition-colors"
+                  variants={slideUpFade}
+                  initial="hidden"
+                  whileInView="visible"
+                  custom={index + 2}
+                  viewport={{ once: true }}
                 >
-                  <h4 className="text-lg font-medium text-foreground">
-                    {role.title}
-                  </h4>
+                  <h4 className="text-lg font-medium">{role.title}</h4>
                   <p className="text-muted-foreground">{role.org}</p>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    {role.time}
-                  </p>
+                  <p className="text-sm text-muted-foreground mb-2">{role.time}</p>
                   <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                     {role.points.map((point, i) => (
                       <li key={i}>{point}</li>
@@ -137,9 +190,9 @@ export default function Education() {
                 </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

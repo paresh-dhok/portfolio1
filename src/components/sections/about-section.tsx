@@ -6,6 +6,13 @@ import { FaGraduationCap, FaUsers } from "react-icons/fa"
 import { motion } from "framer-motion"
 import Image from "next/image"
 
+interface Position {
+  title: string
+  org: string
+  time: string
+  points: string[]
+}
+
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -125,7 +132,16 @@ export function AboutSection() {
                   institute: "MIT World Peace University",
                   time: "Aug 2023 - May 2027"
                 },
-                // Other education entries...
+                {
+                  degree: "Higher Secondary Certificate",
+                  institute: "Gurukul Public School & Junior College Of Science",
+                  time: "Aug 2020 - June 2022"
+                },
+                {
+                  degree: "Secondary School Certificate",
+                  institute: "Raisaheb Moti Sangai English School",
+                  time: "June 2019 - April 2020"
+                }
               ].map((edu, index) => (
                 <motion.li
                   key={index}
@@ -174,8 +190,25 @@ export function AboutSection() {
             </motion.h3>
             <ul className="space-y-8">
               {[
-                // Positions data...
-              ].map((role, index) => (
+                {
+                  title: "Vice President and Founder",
+                  org: "Student Club - Prismlabs, MIT-WPU",
+                  time: "Feb 2025 - Present",
+                  points: [
+                    "Led club expansion into hackathons, workshops & hands-on AI/ML, IoT training",
+                    "Strategized marketing & recruitment to grow community reach",
+                  ],
+                },
+                {
+                  title: "SY Coordinator",
+                  org: "Student Club - InsightAI, MIT-WPU",
+                  time: "July 2024 - Present",
+                  points: [
+                    "Collaborated with technical clubs to expand AI/ML opportunities",
+                    "Managed second-year activities and event coordination",
+                  ],
+                },
+              ].map((role: Position, index) => (
                 <motion.li
                   key={index}
                   variants={listItemVariants}

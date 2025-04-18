@@ -6,7 +6,6 @@ import { ProjectsSection } from "@/components/sections/projects-section";
 import { SkillsSection } from "@/components/sections/skills-section";
 import { AchievementsSection } from "@/components/sections/achievements-section";
 import { ContactSection } from "@/components/sections/contact-section";
-import { Analytics } from "@vercel/analytics/react";  // Import the Analytics component
 
 export default function Home() {
   return (
@@ -20,10 +19,7 @@ export default function Home() {
         <AchievementsSection />
         <ContactSection />
       </main>
-      <SiteFooter />
-      
-      {/* Add the Analytics component to track page views */}
-      <Analytics />
+      <SiteFooter />  {/* This will now correctly use the default export */}
     </div>
   );
 }

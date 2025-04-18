@@ -39,9 +39,6 @@ export function SkillsSection() {
     }
   ];
 
-  const slugify = (text: string) =>
-    text.toLowerCase().replace(/\s+/g, "-");
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -57,55 +54,64 @@ export function SkillsSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.4 }
+      transition: { duration: 0.5 }
     }
   };
 
+  const slugify = (text: string) =>
+    text.toLowerCase().replace(/\s+/g, "-");
+
   return (
-    <section id="skills" className="py-24 bg-gradient-to-tr from-background to-muted">
-      <div className="container max-w-6xl px-6 mx-auto">
+    <section id="skills" className="py-20 md:py-28 bg-gradient-to-br from-background to-muted">
+      <div className="container px-4">
         <motion.div
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-14"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-primary mb-3">My Technical Arsenal</h2>
-          <Separator className="mx-auto w-24 bg-primary mb-5" />
-          <p className="text-lg text-muted-foreground">A versatile stack of software, hardware, and development tools I work with.</p>
+          <h2 className="text-4xl font-bold mb-4 text-primary">Technical Skills</h2>
+          <Separator className="mx-auto w-20 mb-6 bg-primary" />
+          <p className="text-lg text-muted-foreground">
+            My expertise spans programming, hardware systems, and technical tools.
+          </p>
         </motion.div>
 
-        <Tabs defaultValue={slugify(skillCategories[0].name)} className="w-full">
-          <TabsList className="flex flex-wrap justify-center gap-3 bg-background/60 p-4 rounded-2xl shadow-md mb-10 backdrop-blur-md border">
-            {skillCategories.map((category) => (
-              <TabsTrigger
-                key={category.name}
-                value={slugify(category.name)}
-                className="text-sm md:text-base px-5 py-2 rounded-full bg-muted hover:bg-primary hover:text-white transition-all duration-300"
-              >
-                {category.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+        <Tabs defaultValue={slugify(skillCategories[0].name)} className="w-full max-w-5xl mx-auto">
+          <div className="relative z-10">
+            <TabsList className="flex flex-wrap gap-3 justify-center mb-10">
+              {skillCategories.map((category) => (
+                <TabsTrigger
+                  key={category.name}
+                  value={slugify(category.name)}
+                  className="text-sm px-4 py-2 rounded-xl bg-muted/60 hover:bg-muted transition-all"
+                >
+                  {category.name}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
 
           {skillCategories.map((category) => (
             <TabsContent
               key={category.name}
               value={slugify(category.name)}
-              className="data-[state=active]:block hidden mt-2"
+              className="overflow-visible pt-6 data-[state=active]:block hidden"
             >
               <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center"
+                className="flex flex-wrap gap-4 justify-center"
               >
                 {category.skills.map((skill) => (
                   <motion.div key={skill} variants={itemVariants}>
                     <Badge
-                      className="px-4 py-2 text-sm rounded-full bg-gradient-to-tr from-secondary to-muted hover:from-primary hover:to-blue-500 text-foreground hover:text-white shadow transition-all duration-300"
+                      className="px-4 py-2 text-sm rounded-full bg-muted text-primary transition-all duration-500 
+                                 hover:bg-gradient-to-r hover:from-muted hover:to-blue-500 hover:text-white shadow-sm"
+                      variant="secondary"
                     >
                       {skill}
                     </Badge>

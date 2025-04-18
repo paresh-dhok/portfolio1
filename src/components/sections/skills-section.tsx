@@ -15,7 +15,7 @@ export function SkillsSection() {
   const skillCategories: SkillCategory[] = [
     {
       name: "Languages",
-      skills: ["Python", "C/C++", "HTML", "Embedded C", "Java", "Machine Level Programming", "Web Development"]
+      skills: ["Python", "C/C++", "HTML", "Taimwind CSS", "JavaScript", "Embedded C", "Java", "Machine Level Programming", "Web Development"]
     },
     {
       name: "Hardware & Embedded Systems",

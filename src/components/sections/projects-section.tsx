@@ -15,6 +15,7 @@ interface Project {
   period: string
   highlights: string[]
   githubLink?: string
+  image?: string
   video?: string
 }
 
@@ -29,7 +30,8 @@ export function ProjectsSection() {
         "Developed an AI-driven system that adapts room ambiance based on the user's mood, including music, lighting",
         "Integrated Arduino and IoT components to control smart lights, speakers, and aroma diffusers using Intel OpenVino"
       ],
-      githubLink: "https://github.com/pareshdhok"
+      githubLink: "https://github.com/pareshdhok",
+      image: "/MoodE.jpeg"  // Image path for MoodE
     },
     {
       title: "Scout Rover",
@@ -40,7 +42,8 @@ export function ProjectsSection() {
         "Designed a wireless control system to operate the Scout Rover using a gamepad for variable speed control and directional movement",
         "Integrated ultrasonic sensors, IR sensors, and MPU6050 for obstacle avoidance and motion stability with gas and temperature sensors, plus a LiDAR sensor to scan surroundings and generate 2D maps in MATLAB"
       ],
-      githubLink: "https://github.com/pareshdhok"
+      githubLink: "https://github.com/pareshdhok",
+      image: "/Scout_Rover.jpg"  // Image path for Scout Rover
     },
     {
       title: "JARVIS",
@@ -51,7 +54,8 @@ export function ProjectsSection() {
         "Built an offline voice-controlled system to operate home automation devices without needing internet",
         "Developed a custom voice control system that allows users to modify voice commands for each action"
       ],
-      githubLink: "https://github.com/pareshdhok"
+      githubLink: "https://github.com/pareshdhok",
+      image: "/Jarvis.jpeg"  // Image path for Jarvis
     },
     {
       title: "Signal Generator",
@@ -62,7 +66,8 @@ export function ProjectsSection() {
         "Designed a signal generation system to visualize and analyze different modulation techniques in real time",
         "Implemented AM (DSBSC, DSBFC, SSB), FM and PM in Python for visualization"
       ],
-      githubLink: "https://github.com/pareshdhok"
+      githubLink: "https://github.com/pareshdhok",
+      image: "/Signal_Generator.jpg"  // Image path for Signal Generator
     },
     {
       title: "Home Automation System",
@@ -74,7 +79,7 @@ export function ProjectsSection() {
         "Implemented automatic garage gate control using a Wi-Fi-based system for seamless entry and exit"
       ],
       githubLink: "https://github.com/pareshdhok",
-      video: "/Home_Automation.mp4" // Video added
+      video: "/Home_Automation.mp4"  // Video path for Home Automation
     }
   ];
 
@@ -128,19 +133,21 @@ export function ProjectsSection() {
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow">
+                  {project.image ? (
+                    <img src={project.image} alt={project.title} className="w-full h-auto rounded-lg mb-4" />
+                  ) : null}
+                  {project.video ? (
+                    <video controls className="w-full rounded-lg mb-4">
+                      <source src={project.video} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : null}
                   <p className="text-sm text-muted-foreground mb-4">{project.period}</p>
                   <ul className="list-disc list-inside space-y-2 text-sm">
                     {project.highlights.map((highlight) => (
                       <li key={`${project.title}-${highlight.substring(0, 20)}`}>{highlight}</li>
                     ))}
                   </ul>
-
-                  {project.video && (
-                    <video controls className="w-full rounded-lg mb-4">
-                      <source src={project.video} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  )}
                 </CardContent>
                 {project.githubLink && (
                   <CardFooter className="pt-0">
@@ -158,5 +165,5 @@ export function ProjectsSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

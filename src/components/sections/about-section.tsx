@@ -39,8 +39,8 @@ export function AboutSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {/* Profile Photo */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="mx-auto"
@@ -70,7 +70,7 @@ export function AboutSection() {
               <FaGraduationCap className="text-primary" /> Education
             </h3>
             <ul className="space-y-6">
-              {[
+              {[ 
                 {
                   degree: "B.Tech in Electronics and Communication Engineering with AIML",
                   institute: "MIT World Peace University",

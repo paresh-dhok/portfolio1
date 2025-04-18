@@ -89,7 +89,7 @@ export function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-16 md:py-24 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+    <section id="projects" className="py-16 md:py-24 bg-secondary/30">
       <div className="container">
         <motion.div
           className="text-center max-w-3xl mx-auto mb-12"
@@ -98,9 +98,9 @@ export function ProjectsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-semibold mb-4">Projects</h2>
+          <h2 className="text-4xl font-semibold mb-6 text-white">Projects</h2>
           <Separator className="mx-auto w-20 mb-8" />
-          <p className="text-lg text-muted-foreground mb-6 max-w-xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-6 max-w-xl mx-auto text-white">
             Explore my projects showcasing expertise in embedded systems, IoT, and AI/ML.
           </p>
         </motion.div>
@@ -115,9 +115,9 @@ export function ProjectsSection() {
               viewport={{ once: true }}
               variants={cardVariants}
             >
-              <Card className="h-full flex flex-col project-card bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                <CardHeader className="p-4">
-                  <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
+              <Card className="h-full flex flex-col project-card bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+                <CardHeader className="p-6 bg-gray-100 rounded-t-lg">
+                  <CardTitle className="text-xl font-bold text-indigo-600">{project.title}</CardTitle>
                   <CardDescription className="text-sm text-muted-foreground mt-2">{project.description}</CardDescription>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {project.techStack.map((tech) => (
@@ -125,17 +125,17 @@ export function ProjectsSection() {
                     ))}
                   </div>
                 </CardHeader>
-                <CardContent className="flex-grow p-4">
+                <CardContent className="flex-grow p-6">
                   <p className="text-sm text-muted-foreground mb-4">{project.period}</p>
-                  <ul className="list-disc list-inside space-y-2 text-sm">
+                  <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground">
                     {project.highlights.map((highlight) => (
                       <li key={`${project.title}-${highlight.substring(0, 20)}`}>{highlight}</li>
                     ))}
                   </ul>
                 </CardContent>
                 {project.githubLink && (
-                  <CardFooter className="pt-4 px-4">
-                    <Button variant="outline" size="sm" className="gap-2 w-full text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-white" asChild>
+                  <CardFooter className="pt-4 px-6 pb-6">
+                    <Button variant="outline" size="sm" className="gap-2 w-full text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors" asChild>
                       <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                         <FaGithub className="h-4 w-4" />
                         View on GitHub

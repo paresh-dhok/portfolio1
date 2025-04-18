@@ -15,7 +15,6 @@ interface Project {
   period: string
   highlights: string[]
   githubLink?: string
-  image?: string
   video?: string
 }
 
@@ -30,8 +29,7 @@ export function ProjectsSection() {
         "Developed an AI-driven system that adapts room ambiance based on the user's mood, including music, lighting",
         "Integrated Arduino and IoT components to control smart lights, speakers, and aroma diffusers using Intel OpenVino"
       ],
-      githubLink: "https://github.com/pareshdhok",
-      image: "/MoodE.jpeg"  // Updated image path
+      githubLink: "https://github.com/pareshdhok"
     },
     {
       title: "Scout Rover",
@@ -42,8 +40,7 @@ export function ProjectsSection() {
         "Designed a wireless control system to operate the Scout Rover using a gamepad for variable speed control and directional movement",
         "Integrated ultrasonic sensors, IR sensors, and MPU6050 for obstacle avoidance and motion stability with gas and temperature sensors, plus a LiDAR sensor to scan surroundings and generate 2D maps in MATLAB"
       ],
-      githubLink: "https://github.com/pareshdhok",
-      image: "/Scout_Rover.jpg"  // Updated image path
+      githubLink: "https://github.com/pareshdhok"
     },
     {
       title: "JARVIS",
@@ -54,8 +51,7 @@ export function ProjectsSection() {
         "Built an offline voice-controlled system to operate home automation devices without needing internet",
         "Developed a custom voice control system that allows users to modify voice commands for each action"
       ],
-      githubLink: "https://github.com/pareshdhok",
-      image: "/Jarvis.jpeg"  // Updated image path
+      githubLink: "https://github.com/pareshdhok"
     },
     {
       title: "Signal Generator",
@@ -66,8 +62,7 @@ export function ProjectsSection() {
         "Designed a signal generation system to visualize and analyze different modulation techniques in real time",
         "Implemented AM (DSBSC, DSBFC, SSB), FM and PM in Python for visualization"
       ],
-      githubLink: "https://github.com/pareshdhok",
-      image: "/Signal_Generator.jpg"  // Updated image path
+      githubLink: "https://github.com/pareshdhok"
     },
     {
       title: "Home Automation System",
@@ -79,7 +74,7 @@ export function ProjectsSection() {
         "Implemented automatic garage gate control using a Wi-Fi-based system for seamless entry and exit"
       ],
       githubLink: "https://github.com/pareshdhok",
-      video: "/Home_Automation.mp4"  // Video path
+      video: "/Home_Automation.mp4" // Video added
     }
   ];
 
@@ -105,14 +100,14 @@ export function ProjectsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-semibold mb-6 text-white">Projects</h2>
+          <h2 className="text-3xl font-bold mb-4">Projects</h2>
           <Separator className="mx-auto w-20 mb-8" />
-          <p className="text-lg text-muted-foreground mb-6 max-w-xl mx-auto text-white">
+          <p className="text-lg text-muted-foreground mb-6">
             Explore my projects showcasing expertise in embedded systems, IoT, and AI/ML.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -122,40 +117,34 @@ export function ProjectsSection() {
               viewport={{ once: true }}
               variants={cardVariants}
             >
-              <Card className="h-full flex flex-col project-card bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-                <CardHeader className="p-6 bg-gray-100 rounded-t-lg">
-                  <CardTitle className="text-xl font-bold text-indigo-600">{project.title}</CardTitle>
-                  <CardDescription className="text-sm text-muted-foreground mt-2">{project.description}</CardDescription>
+              <Card className="h-full flex flex-col project-card">
+                <CardHeader>
+                  <CardTitle>{project.title}</CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {project.techStack.map((tech) => (
-                      <Badge key={tech} variant="outline" className="text-sm">{tech}</Badge>
+                      <Badge key={tech} variant="secondary">{tech}</Badge>
                     ))}
                   </div>
                 </CardHeader>
-                <CardContent className="flex-grow p-6">
-                  {project.image ? (
-                    <img src={project.image} alt={project.title} className="w-full h-auto rounded-lg mb-4" />
-                  ) : (
-                    <div className="w-full h-60 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
-                      <span className="text-gray-500">No Image Available</span>
-                    </div>
-                  )}
-                  {project.video ? (
-                    <video controls className="w-full rounded-lg mb-4">
-                      <source src={project.video} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  ) : null}
+                <CardContent className="flex-grow">
                   <p className="text-sm text-muted-foreground mb-4">{project.period}</p>
-                  <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground">
+                  <ul className="list-disc list-inside space-y-2 text-sm">
                     {project.highlights.map((highlight) => (
                       <li key={`${project.title}-${highlight.substring(0, 20)}`}>{highlight}</li>
                     ))}
                   </ul>
+
+                  {project.video && (
+                    <video controls className="w-full rounded-lg mb-4">
+                      <source src={project.video} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  )}
                 </CardContent>
                 {project.githubLink && (
-                  <CardFooter className="pt-4 px-6 pb-6">
-                    <Button variant="outline" size="sm" className="gap-2 w-full text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors" asChild>
+                  <CardFooter className="pt-0">
+                    <Button variant="outline" size="sm" className="gap-2 w-full" asChild>
                       <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                         <FaGithub className="h-4 w-4" />
                         View on GitHub
@@ -169,5 +158,5 @@ export function ProjectsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

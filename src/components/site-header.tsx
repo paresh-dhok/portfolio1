@@ -4,19 +4,34 @@ import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Download } from "lucide-react"
+import { Menu, Download } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { motion } from "framer-motion"
+
+// Animation variants
+const navItemVariants = {
+  rest: { scale: 1 },
+  hover: {
+    scale: 1.1,
+    color: "#6366F1", // Tailwind 'text-primary'
+    transition: { type: "spring", stiffness: 300 },
+  },
+}
+
+const underlineVariants = {
+  rest: { width: 0 },
+  hover: {
+    width: "100%",
+    transition: { duration: 0.3 },
+  },
+}
 
 export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
-      }
+      setIsScrolled(window.scrollY > 10)
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -40,30 +55,56 @@ export function SiteHeader() {
       }`}
     >
       <div className="container flex h-16 items-center justify-between">
+        {/* Left section - Logo & Nav */}
         <div className="flex items-center gap-6 md:gap-10">
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-xl font-bold">Paresh Dhok</span>
           </Link>
+
           <nav className="hidden md:flex gap-6">
             {navItems.map((item) => (
-              <Link
+              <motion.div
                 key={item.name}
-                href={item.href}
-                className="text-sm font-medium transition-colors hover:text-primary"
+                variants={navItemVariants}
+                initial="rest"
+                whileHover="hover"
+                animate="rest"
+                className="relative group"
               >
-                {item.name}
-              </Link>
+                <Link
+                  href={item.href}
+                  className="text-sm font-medium transition-colors"
+                >
+                  {item.name}
+                </Link>
+                <motion.div
+                  className="h-[2px] bg-primary absolute left-0 -bottom-1"
+                  variants={underlineVariants}
+                />
+              </motion.div>
             ))}
           </nav>
         </div>
+
+        {/* Right section - Buttons */}
         <div className="flex items-center gap-4">
-          <Button variant="outline" size="sm" className="hidden md:flex gap-2" asChild>
-            <a href="/Paresh_Resume.pdf" download>
-              <Download className="h-4 w-4" />
-              Resume
-            </a>
-          </Button>
+          <motion.div
+            variants={navItemVariants}
+            initial="rest"
+            whileHover="hover"
+            animate="rest"
+          >
+            <Button variant="outline" size="sm" className="hidden md:flex gap-2" asChild>
+              <a href="/Paresh_Resume.pdf" download>
+                <Download className="h-4 w-4" />
+                Resume
+              </a>
+            </Button>
+          </motion.div>
+
           <ThemeToggle />
+
+          {/* Mobile menu */}
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">

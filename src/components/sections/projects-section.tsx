@@ -22,66 +22,66 @@ interface Project {
 
 export function ProjectsSection() {
   const projects: Project[] = [
-    {
-      title: "MoodE",
-      description: "AI-driven ambient mood adaptation system",
-      techStack: ["Python", "Embedded C", "TensorFlow", "OpenCV"],
-      period: "February 2024 - Present",
-      highlights: [
-        "Developed an AI-driven system that adapts room ambiance based on the user's mood, including music, lighting",
-        "Integrated Arduino and IoT components to control smart lights, speakers, and aroma diffusers using Intel OpenVino"
-      ],
-      githubLink: "https://github.com/pareshdhok",
-      image: "/MoodE.jpeg"
-    },
-    {
-      title: "Scout Rover",
-      description: "Wireless controlled rover with advanced sensing capabilities",
-      techStack: ["Python", "Embedded C", "MATLAB"],
-      period: "September 2024 - November 2024",
-      highlights: [
-        "Designed a wireless control system to operate the Scout Rover using a gamepad for variable speed control and directional movement",
-        "Integrated ultrasonic sensors, IR sensors, and MPU6050 for obstacle avoidance and motion stability with gas and temperature sensors, plus a LiDAR sensor to scan surroundings and generate 2D maps in MATLAB"
-      ],
-      githubLink: "https://github.com/pareshdhok",
-      image: "/Scout_Rover.jpg"
-    },
-    {
-      title: "JARVIS",
-      description: "Offline voice-controlled home automation system",
-      techStack: ["Python", "Embedded C", "Google TTS Framework"],
-      period: "March 2024 - April 2024",
-      highlights: [
-        "Built an offline voice-controlled system to operate home automation devices without needing internet",
-        "Developed a custom voice control system that allows users to modify voice commands for each action"
-      ],
-      githubLink: "https://github.com/pareshdhok",
-      image: "/Jarvis.jpeg"
-    },
-    {
-      title: "Signal Generator",
-      description: "Visualization and analysis tool for modulation techniques",
-      techStack: ["Python", "Plotly", "Flask", "scikit-learn", "Dash"],
-      period: "January 2025 - Present",
-      highlights: [
-        "Designed a signal generation system to visualize and analyze different modulation techniques in real time",
-        "Implemented AM (DSBSC, DSBFC, SSB), FM and PM in Python for visualization"
-      ],
-      githubLink: "https://github.com/pareshdhok",
-      image: "/Signal_Generator.jpg"
-    },
-    {
-      title: "Home Automation System",
-      description: "Mobile-controlled home automation solution",
-      techStack: ["Embedded C"],
-      period: "September 2023 - November 2023",
-      highlights: [
-        "Designed and developed a home automation system with mobile-controlled operations using ESP8266",
-        "Implemented automatic garage gate control using a Wi-Fi-based system for seamless entry and exit"
-      ],
-      githubLink: "https://github.com/pareshdhok",
-      video: "/Home_Automation.mp4"
-    }
+  {
+    title: "MoodE",
+    description: "AI-driven ambient mood adaptation system",
+    techStack: ["Python", "Embedded C", "TensorFlow", "OpenCV"],
+    period: "February 2024 - Present",
+    highlights: [
+      "Developed an AI-driven system that adapts room ambiance based on the user's mood, including music, lighting",
+      "Integrated Arduino and IoT components to control smart lights, speakers, and aroma diffusers using Intel OpenVino"
+    ],
+    githubLink: "https://github.com/pareshdhok/MoodE",
+    image: "/MoodE.jpeg"
+  },
+  {
+    title: "Scout Rover",
+    description: "Wireless controlled rover with advanced sensing capabilities",
+    techStack: ["Python", "Embedded C", "MATLAB"],
+    period: "September 2024 - November 2024",
+    highlights: [
+      "Designed a wireless control system to operate the Scout Rover using a gamepad for variable speed control and directional movement",
+      "Integrated ultrasonic sensors, IR sensors, and MPU6050 for obstacle avoidance and motion stability with gas and temperature sensors, plus a LiDAR sensor to scan surroundings and generate 2D maps in MATLAB"
+    ],
+    githubLink: "https://github.com/pareshdhok/Scout-Rover",
+    image: "/Scout_Rover.jpg"
+  },
+  {
+    title: "JARVIS",
+    description: "Offline voice-controlled home automation system",
+    techStack: ["Python", "Embedded C", "Google TTS Framework"],
+    period: "March 2024 - April 2024",
+    highlights: [
+      "Built an offline voice-controlled system to operate home automation devices without needing internet",
+      "Developed a custom voice control system that allows users to modify voice commands for each action"
+    ],
+    githubLink: "https://github.com/pareshdhok/JARVIS-Offline-Home-Automation",
+    image: "/Jarvis.jpeg"
+  },
+  {
+    title: "Signal Generator",
+    description: "Visualization and analysis tool for modulation techniques",
+    techStack: ["Python", "Plotly", "Flask", "scikit-learn", "Dash"],
+    period: "January 2025 - Present",
+    highlights: [
+      "Designed a signal generation system to visualize and analyze different modulation techniques in real time",
+      "Implemented AM (DSBSC, DSBFC, SSB), FM and PM in Python for visualization"
+    ],
+    githubLink: "https://github.com/pareshdhok/Signal-Generator",
+    image: "/Signal_Generator.jpg"
+  },
+  {
+    title: "Home Automation System",
+    description: "Mobile-controlled home automation solution",
+    techStack: ["Embedded C"],
+    period: "September 2023 - November 2023",
+    highlights: [
+      "Designed and developed a home automation system with mobile-controlled operations using ESP8266",
+      "Implemented automatic garage gate control using a Wi-Fi-based system for seamless entry and exit"
+    ],
+    githubLink: "https://github.com/pareshdhok/Home-Automation-System",
+    video: "/Home_Automation.mp4"
+  }
   ];
 
   const cardVariants = {

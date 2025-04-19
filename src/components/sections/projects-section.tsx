@@ -31,7 +31,7 @@ export function ProjectsSection() {
       "Developed an AI-driven system that adapts room ambiance based on the user's mood, including music, lighting",
       "Integrated Arduino and IoT components to control smart lights, speakers, and aroma diffusers using Intel OpenVino"
     ],
-    githubLink: "https://github.com/pareshdhok/MoodE",
+    githubLink: "https://github.com/paresh-dhok/MoodE",
     image: "/MoodE.jpeg"
   },
   {
@@ -43,7 +43,7 @@ export function ProjectsSection() {
       "Designed a wireless control system to operate the Scout Rover using a gamepad for variable speed control and directional movement",
       "Integrated ultrasonic sensors, IR sensors, and MPU6050 for obstacle avoidance and motion stability with gas and temperature sensors, plus a LiDAR sensor to scan surroundings and generate 2D maps in MATLAB"
     ],
-    githubLink: "https://github.com/pareshdhok/Scout-Rover",
+    githubLink: "https://github.com/paresh-dhok/Scout-Rover",
     image: "/Scout_Rover.jpg"
   },
   {
@@ -55,7 +55,7 @@ export function ProjectsSection() {
       "Built an offline voice-controlled system to operate home automation devices without needing internet",
       "Developed a custom voice control system that allows users to modify voice commands for each action"
     ],
-    githubLink: "https://github.com/pareshdhok/JARVIS-Offline-Home-Automation",
+    githubLink: "https://github.com/paresh-dhok/Jarvis",
     image: "/Jarvis.jpeg"
   },
   {
@@ -67,7 +67,7 @@ export function ProjectsSection() {
       "Designed a signal generation system to visualize and analyze different modulation techniques in real time",
       "Implemented AM (DSBSC, DSBFC, SSB), FM and PM in Python for visualization"
     ],
-    githubLink: "https://github.com/pareshdhok/Signal-Generator",
+    githubLink: "https://github.com/paresh-dhok/Signal-Generator",
     image: "/Signal_Generator.jpg"
   },
   {
@@ -79,7 +79,7 @@ export function ProjectsSection() {
       "Designed and developed a home automation system with mobile-controlled operations using ESP8266",
       "Implemented automatic garage gate control using a Wi-Fi-based system for seamless entry and exit"
     ],
-    githubLink: "https://github.com/pareshdhok/Home-Automation-System",
+    githubLink: "https://github.com/paresh-dhok/Home-Automation",
     video: "/Home_Automation.mp4"
   }
   ];

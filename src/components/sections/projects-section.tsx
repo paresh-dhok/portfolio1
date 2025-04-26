@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import { FaGithub } from "react-icons/fa"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import Link from "next/link"
 
 interface Project {
   title: string
@@ -23,79 +22,66 @@ interface Project {
 
 export function ProjectsSection() {
   const projects: Project[] = [
-    {
-      title: "MoodE",
-      description: "AI-driven ambient mood adaptation system",
-      techStack: ["Python", "Embedded C", "TensorFlow", "OpenCV"],
-      period: "February 2024 - Present",
-      highlights: [
-        "Developed an AI-driven system that adapts room ambiance based on the user's mood, including music, lighting",
-        "Integrated Arduino and IoT components to control smart lights, speakers, and aroma diffusers using Intel OpenVino"
-      ],
-      githubLink: "https://github.com/paresh-dhok/MoodE",
-      image: "/MoodE.jpeg"
-    },
-    {
-      title: "Scout Rover",
-      description: "Wireless controlled rover with advanced sensing capabilities",
-      techStack: ["Python", "Embedded C", "MATLAB"],
-      period: "September 2024 - November 2024",
-      highlights: [
-        "Designed a wireless control system to operate the Scout Rover using a gamepad for variable speed control and directional movement",
-        "Integrated ultrasonic sensors, IR sensors, and MPU6050 for obstacle avoidance and motion stability with gas and temperature sensors, plus a LiDAR sensor to scan surroundings and generate 2D maps in MATLAB"
-      ],
-      githubLink: "https://github.com/paresh-dhok/Scout-Rover",
-      image: "/Scout_Rover.jpg"
-    },
-    {
-      title: "JARVIS",
-      description: "Offline voice-controlled home automation system",
-      techStack: ["Python", "Embedded C", "Google TTS Framework"],
-      period: "March 2024 - April 2024",
-      highlights: [
-        "Built an offline voice-controlled system to operate home automation devices without needing internet",
-        "Developed a custom voice control system that allows users to modify voice commands for each action"
-      ],
-      githubLink: "https://github.com/paresh-dhok/Jarvis",
-      image: "/Jarvis.jpeg"
-    },
-    {
-      title: "Signal Generator",
-      description: "Visualization and analysis tool for modulation techniques",
-      techStack: ["Python", "Plotly", "Flask", "scikit-learn", "Dash"],
-      period: "January 2025 - Present",
-      highlights: [
-        "Designed a signal generation system to visualize and analyze different modulation techniques in real time",
-        "Implemented AM (DSBSC, DSBFC, SSB), FM and PM in Python for visualization"
-      ],
-      githubLink: "https://github.com/paresh-dhok/Signal-Generator",
-      image: "/Signal_Generator.jpg"
-    },
-    {
-      title: "Home Automation System",
-      description: "Mobile-controlled home automation solution",
-      techStack: ["Embedded C"],
-      period: "September 2023 - November 2023",
-      highlights: [
-        "Designed and developed a home automation system with mobile-controlled operations using ESP8266",
-        "Implemented automatic garage gate control using a Wi-Fi-based system for seamless entry and exit"
-      ],
-      githubLink: "https://github.com/paresh-dhok/Home-Automation",
-      video: "/Home_Automation.mp4"
-    },
-    {
-      title: "Smart Auto Park",
-      description: "Autonomous vehicle parking system using ultrasonic sensors and motors",
-      techStack: ["Embedded C", "Arduino", "Ultrasonic Sensors", "DC Motors"],
-      period: "July 2024 - August 2024",
-      highlights: [
-        "Developed an autonomous vehicle parking system using ultrasonic sensors for distance measurement",
-        "Integrated DC motors and an Arduino to control the movement of the vehicle for accurate parking",
-        "Implemented real-time decision-making for parking space detection and automated vehicle positioning"
-      ],
-      githubLink: "https://github.com/paresh-dhok/Smart-Auto-Park",
-      image: "/Smart_Auto_Park.jpg"
-    }
+  {
+    title: "MoodE",
+    description: "AI-driven ambient mood adaptation system",
+    techStack: ["Python", "Embedded C", "TensorFlow", "OpenCV"],
+    period: "February 2024 - Present",
+    highlights: [
+      "Developed an AI-driven system that adapts room ambiance based on the user's mood, including music, lighting",
+      "Integrated Arduino and IoT components to control smart lights, speakers, and aroma diffusers using Intel OpenVino"
+    ],
+    githubLink: "https://github.com/paresh-dhok/MoodE",
+    image: "/MoodE.jpeg"
+  },
+  {
+    title: "Scout Rover",
+    description: "Wireless controlled rover with advanced sensing capabilities",
+    techStack: ["Python", "Embedded C", "MATLAB"],
+    period: "September 2024 - November 2024",
+    highlights: [
+      "Designed a wireless control system to operate the Scout Rover using a gamepad for variable speed control and directional movement",
+      "Integrated ultrasonic sensors, IR sensors, and MPU6050 for obstacle avoidance and motion stability with gas and temperature sensors, plus a LiDAR sensor to scan surroundings and generate 2D maps in MATLAB"
+    ],
+    githubLink: "https://github.com/paresh-dhok/Scout-Rover",
+    image: "/Scout_Rover.jpg"
+  },
+  {
+    title: "JARVIS",
+    description: "Offline voice-controlled home automation system",
+    techStack: ["Python", "Embedded C", "Google TTS Framework"],
+    period: "March 2024 - April 2024",
+    highlights: [
+      "Built an offline voice-controlled system to operate home automation devices without needing internet",
+      "Developed a custom voice control system that allows users to modify voice commands for each action"
+    ],
+    githubLink: "https://github.com/paresh-dhok/Jarvis",
+    image: "/Jarvis.jpeg"
+  },
+  {
+    title: "Signal Generator",
+    description: "Visualization and analysis tool for modulation techniques",
+    techStack: ["Python", "Plotly", "Flask", "scikit-learn", "Dash"],
+    period: "January 2025 - Present",
+    highlights: [
+      "Designed a signal generation system to visualize and analyze different modulation techniques in real time",
+      "Implemented AM (DSBSC, DSBFC, SSB), FM and PM in Python for visualization"
+    ],
+    githubLink: "https://github.com/paresh-dhok/Signal-Generator",
+    image: "/Signal_Generator.jpg"
+  },
+  {
+    title: "Home Automation System",
+    description: "Mobile-controlled home automation solution",
+    techStack: ["Embedded C"],
+    period: "September 2023 - November 2023",
+    highlights: [
+      "Designed and developed a home automation system with mobile-controlled operations using ESP8266",
+      "Implemented automatic garage gate control using a Wi-Fi-based system for seamless entry and exit"
+    ],
+    githubLink: "https://github.com/paresh-dhok/Home-Automation",
+    video: "/Home_Automation.mp4"
+  }
   ];
 
   const cardVariants = {
@@ -204,8 +190,13 @@ export function ProjectsSection() {
                           key={tech}
                           variants={badgeVariants}
                           custom={techIndex}
+                          initial="hidden"
+                          whileInView="visible"
                         >
-                          <Badge variant="secondary" className="text-sm">
+                          <Badge 
+                            variant="secondary" 
+                            className="text-xs font-medium bg-muted/50 hover:bg-muted/70 transition-colors"
+                          >
                             {tech}
                           </Badge>
                         </motion.div>
@@ -213,42 +204,90 @@ export function ProjectsSection() {
                     </motion.div>
                   </motion.div>
                 </CardHeader>
-                <CardContent className="relative flex-grow">
-                  <div className="w-full aspect-w-16 aspect-h-9 relative">
-                    {project.image && (
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        width={400}
-                        height={225}
-                        className="rounded-lg object-cover w-full h-auto"
-                      />
-                    )}
-                  </div>
+
+                <CardContent className="flex-grow">
+                  {(project.image || project.video) && (
+                    <motion.div
+                      className="relative overflow-hidden rounded-lg mb-4 aspect-video"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      {project.image ? (
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={600}
+                          height={400}
+                          className="object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105"
+                        />
+                      ) : (
+                        <video 
+                          controls 
+                          className="w-full h-full object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-105"
+                        >
+                          <source src={project.video} type="video/mp4" />
+                        </video>
+                      )}
+                    </motion.div>
+                  )}
+
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    <p className="text-sm text-muted-foreground/90 mb-4 font-medium">
+                      {project.period}
+                    </p>
+                    <ul className="space-y-3">
+                      {project.highlights.map((highlight, highlightIndex) => (
+                        <motion.li
+                          key={highlight.substring(0, 30)}
+                          variants={listItemVariants}
+                          custom={highlightIndex}
+                          className="text-sm text-muted-foreground/80 leading-relaxed pl-4 relative before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-primary/80 before:rounded-full"
+                        >
+                          {highlight}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
                 </CardContent>
-                <CardFooter className="mt-4">
-                  {project.githubLink && (
-                    <Link href={project.githubLink} target="_blank" passHref>
-                      <Button
-                        variant="link"
-                        className="flex items-center text-primary font-semibold"
+
+                {project.githubLink && (
+                  <CardFooter className="pt-0 px-6 pb-6">
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="gap-2 w-full transition-all hover:bg-primary/10 hover:text-primary border-muted-foreground/30"
+                        asChild
                       >
-                        <FaGithub className="mr-2" />
-                        View on GitHub
+                        <a 
+                          href={project.githubLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="group"
+                        >
+                          <motion.span 
+                            whileHover={{ rotate: [0, -10, 10, 0] }}
+                            transition={{ duration: 0.4 }}
+                          >
+                            <FaGithub className="h-4 w-4 transition-transform group-hover:scale-110" />
+                          </motion.span>
+                          <span className="transition-transform group-hover:translate-x-1">
+                            View on GitHub
+                          </span>
+                        </a>
                       </Button>
-                    </Link>
-                  )}
-                  {project.video && (
-                    <Link href={project.video} target="_blank" passHref>
-                      <Button
-                        variant="link"
-                        className="ml-2 text-primary font-semibold"
-                      >
-                        Watch Video
-                      </Button>
-                    </Link>
-                  )}
-                </CardFooter>
+                    </motion.div>
+                  </CardFooter>
+                )}
               </Card>
             </motion.div>
           ))}

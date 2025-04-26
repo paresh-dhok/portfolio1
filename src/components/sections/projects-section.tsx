@@ -203,13 +203,8 @@ export function ProjectsSection() {
                           key={tech}
                           variants={badgeVariants}
                           custom={techIndex}
-                          initial="hidden"
-                          whileInView="visible"
                         >
-                          <Badge 
-                            variant="secondary" 
-                            className="text-xs font-medium bg-muted/50 hover:bg-muted/70 transition-colors"
-                          >
+                          <Badge variant="secondary" className="text-sm">
                             {tech}
                           </Badge>
                         </motion.div>
@@ -217,79 +212,44 @@ export function ProjectsSection() {
                     </motion.div>
                   </motion.div>
                 </CardHeader>
-
-                <CardContent className="flex-grow">
-                  {(project.image || project.video) && (
-                    <motion.div
-                      className="relative overflow-hidden rounded-lg mb-4 aspect-video"
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      {project.image ? (
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          width={600}
-                          height={400}
-                          className="object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105"
-                        />
-                      ) : (
-                        <video 
-                          controls 
-                          className="w-full h-full object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-105"
-                        >
-                          <source src={project.video} type="video/mp4" />
-                        </video>
-                      )}
-                    </motion.div>
-                  )}
-
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                  >
-                    <p className="text-sm text-muted-foreground/90 mb-4 font-medium">
-                      {project.period}
-                    </p>
-                    <ul className="space-y-3">
-                      {project.highlights.map((highlight, highlightIndex) => (
-                        <motion.li
-                          key={highlight.substring(0, 30)}
-                          variants={listItemVariants}
-                          custom={highlightIndex}
-                          className="text-sm text-muted-foreground/80 leading-relaxed pl-4 relative before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-primary/80 before:rounded-full"
-                        >
-                          {highlight}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </motion.div>
+                <CardContent className="relative flex-grow">
+                  <div className="w-full aspect-w-16 aspect-h-9 relative">
+                    {project.image && (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        layout="fill"
+                        objectFit="cover"
+                        className="rounded-lg"
+                      />
+                    )}
+                  </div>
                 </CardContent>
-
-                {project.githubLink && (
-                  <CardFooter className="pt-0 px-6 pb-6">
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      className="w-full"
+                <CardFooter className="mt-4">
+                  {project.githubLink && (
+                    <Button
+                      as="a"
+                      href={project.githubLink}
+                      target="_blank"
+                      variant="link"
+                      className="flex items-center text-primary font-semibold"
                     >
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="gap-2 w-full transition-all hover:bg-primary/10 hover:text-primary border-muted-foreground/40"
-                        as="a"
-                        href={project.githubLink}
-                        target="_blank"
-                      >
-                        <FaGithub className="text-muted-foreground" />
-                        View Code
-                      </Button>
-                    </motion.div>
-                  </CardFooter>
-                )}
+                      <FaGithub className="mr-2" />
+                      View on GitHub
+                    </Button>
+                  )}
+                  {project.video && (
+                    <Button
+                      as="a"
+                      href={project.video}
+                      target="_blank"
+                      variant="link"
+                      className="ml-2 text-primary font-semibold"
+                    >
+                      Watch Video
+                    </Button>
+                  )}
+                </CardFooter>
               </Card>
             </motion.div>
           ))}

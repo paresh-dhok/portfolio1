@@ -23,25 +23,6 @@ interface Project {
 export function ProjectsSection() {
   const projects: Project[] = [
     {
-      title: "Smart AutoPark System",
-      description: "Real-time intelligent parking management system with dynamic pricing and occupancy tracking",
-      techStack: ["Python", "Flask", "React", "TypeScript", "OpenCV", "scikit-fuzzy"],
-      period: "March 2025 - Present",
-      highlights: [
-        "Backend (Python/Flask):",
-        "• Camera Module: Handles real-time video processing, vehicle detection, maintains parking slot status, stores occupancy data, calculates arrival rates.",
-        "• Pricing Module: Implements dynamic intelligent pricing using fuzzy logic based on occupancy and arrival rates.",
-        "• Flask Server: Provides REST API endpoints, streams video, sends real-time occupancy and pricing data.",
-        "Frontend (React/TypeScript):",
-        "• Real-time Dashboard: Displays live parking data, processed camera feed, dynamic pricing updates, and occupancy trends.",
-        "• Data Flow: API calls every 2 seconds, WebSocket for video streaming, Chart.js for visualization.",
-        "• State Management: React hooks, real-time updates, responsive Tailwind CSS layout.",
-        "Architecture: Client-server model ensuring intelligent backend processing and real-time user-friendly frontend interface."
-      ],
-      githubLink: "https://github.com/your-github/smart-autopark-system",
-      image: "/Screenshot (65).png"
-    },
-    {
       title: "MoodE",
       description: "AI-driven ambient mood adaptation system",
       techStack: ["Python", "Embedded C", "TensorFlow", "OpenCV"],
@@ -122,7 +103,7 @@ export function ProjectsSection() {
     visible: (i: number) => ({
       opacity: 1,
       scale: 1,
-      transition: {
+      transition: { 
         delay: i * 0.05 + 0.3,
         type: "spring",
         stiffness: 150
@@ -250,15 +231,53 @@ export function ProjectsSection() {
                       )}
                     </motion.div>
                   )}
+
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    <p className="text-sm text-muted-foreground/90 mb-4 font-medium">
+                      {project.period}
+                    </p>
+                    <ul className="space-y-3">
+                      {project.highlights.map((highlight, highlightIndex) => (
+                        <motion.li
+                          key={highlight.substring(0, 30)}
+                          variants={listItemVariants}
+                          custom={highlightIndex}
+                          className="text-sm text-muted-foreground/80 leading-relaxed pl-4 relative before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-primary/80 before:rounded-full"
+                        >
+                          {highlight}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
                 </CardContent>
 
                 {project.githubLink && (
-                  <CardFooter className="flex justify-end mt-auto">
-                    <Button asChild variant="ghost" size="icon" className="hover:text-primary">
-                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                        <FaGithub className="w-5 h-5" />
-                      </a>
-                    </Button>
+                  <CardFooter className="pt-0 px-6 pb-6">
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className="w-full"
+                    >
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="gap-2 w-full transition-all hover:bg-primary/10 hover:text-primary border-muted-foreground/30"
+                        asChild
+                      >
+                        <a 
+                          href={project.githubLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          <FaGithub className="w-4 h-4" /> View on GitHub
+                        </a>
+                      </Button>
+                    </motion.div>
                   </CardFooter>
                 )}
               </Card>
@@ -267,5 +286,5 @@ export function ProjectsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

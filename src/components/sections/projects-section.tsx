@@ -81,6 +81,19 @@ export function ProjectsSection() {
       ],
       githubLink: "https://github.com/paresh-dhok/Home-Automation",
       video: "/Home_Automation.mp4"
+    },
+    {
+      title: "Smart Auto Park",
+      description: "Autonomous vehicle parking system using ultrasonic sensors and motors",
+      techStack: ["Embedded C", "Arduino", "Ultrasonic Sensors", "DC Motors"],
+      period: "July 2024 - August 2024",
+      highlights: [
+        "Developed an autonomous vehicle parking system using ultrasonic sensors for distance measurement",
+        "Integrated DC motors and an Arduino to control the movement of the vehicle for accurate parking",
+        "Implemented real-time decision-making for parking space detection and automated vehicle positioning"
+      ],
+      githubLink: "https://github.com/paresh-dhok/Smart-Auto-Park",
+      image: "/Smart_Auto_Park.jpg"
     }
   ];
 
@@ -266,16 +279,13 @@ export function ProjectsSection() {
                       <Button 
                         variant="outline" 
                         size="sm" 
-                        className="gap-2 w-full transition-all hover:bg-primary/10 hover:text-primary border-muted-foreground/30"
-                        asChild
+                        className="gap-2 w-full transition-all hover:bg-primary/10 hover:text-primary border-muted-foreground/40"
+                        as="a"
+                        href={project.githubLink}
+                        target="_blank"
                       >
-                        <a 
-                          href={project.githubLink} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                        >
-                          <FaGithub className="w-4 h-4" /> View on GitHub
-                        </a>
+                        <FaGithub className="text-muted-foreground" />
+                        View Code
                       </Button>
                     </motion.div>
                   </CardFooter>
@@ -286,5 +296,5 @@ export function ProjectsSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

@@ -49,7 +49,7 @@ export function ProjectsSection() {
   {
     title: "Smart Autoprak",
     description: "Smart parking system with dynamic pricing and live streaming",
-    techStack: ["Python", "SCADA", "openCv","FUZZY"],
+    techStack: ["Python", "SCADA", "OpenCv","FUZZY"],
     period: "April 2025 - Present",
     highlights: [
       "Pricing changes with availiablity, live streaming of the sensor data and complete app for flexiblity ",

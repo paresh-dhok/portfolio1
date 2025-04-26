@@ -47,6 +47,18 @@ export function ProjectsSection() {
     image: "/Scout_Rover.jpg"
   },
   {
+    title: "Smart Autoprak",
+    description: "Smart parking system with dynamic pricing and live streaming",
+    techStack: ["Python", "SCADA", "openCv","FUZZY"],
+    period: "April 2025 - Present",
+    highlights: [
+      "Pricing changes with availiablity, live streaming of the sensor data and complete app for flexiblity ",
+      "An unique SCADA interface for simplified understanding"
+    ],
+    githubLink: "https://github.com/paresh-dhok/HAS_TO_BE+CHANGED",
+    image: "Screenshot (65).png"
+  },
+  {
     title: "JARVIS",
     description: "Offline voice-controlled home automation system",
     techStack: ["Python", "Embedded C", "Google TTS Framework"],

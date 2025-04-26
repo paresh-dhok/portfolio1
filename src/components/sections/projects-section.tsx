@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { FaGithub } from "react-icons/fa"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 
 interface Project {
   title: string
@@ -218,36 +219,34 @@ export function ProjectsSection() {
                       <Image
                         src={project.image}
                         alt={project.title}
-                        layout="fill"
-                        objectFit="cover"
-                        className="rounded-lg"
+                        width={400}
+                        height={225}
+                        className="rounded-lg object-cover w-full h-auto"
                       />
                     )}
                   </div>
                 </CardContent>
                 <CardFooter className="mt-4">
                   {project.githubLink && (
-                    <Button
-                      as="a"
-                      href={project.githubLink}
-                      target="_blank"
-                      variant="link"
-                      className="flex items-center text-primary font-semibold"
-                    >
-                      <FaGithub className="mr-2" />
-                      View on GitHub
-                    </Button>
+                    <Link href={project.githubLink} target="_blank" passHref>
+                      <Button
+                        variant="link"
+                        className="flex items-center text-primary font-semibold"
+                      >
+                        <FaGithub className="mr-2" />
+                        View on GitHub
+                      </Button>
+                    </Link>
                   )}
                   {project.video && (
-                    <Button
-                      as="a"
-                      href={project.video}
-                      target="_blank"
-                      variant="link"
-                      className="ml-2 text-primary font-semibold"
-                    >
-                      Watch Video
-                    </Button>
+                    <Link href={project.video} target="_blank" passHref>
+                      <Button
+                        variant="link"
+                        className="ml-2 text-primary font-semibold"
+                      >
+                        Watch Video
+                      </Button>
+                    </Link>
                   )}
                 </CardFooter>
               </Card>

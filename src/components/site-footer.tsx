@@ -23,32 +23,25 @@ export const viewport: Viewport = {
 };
 
 export default function SiteFooter() {
+  // Local state to control visibility and trigger the animation
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Trigger the fade-in effect when the component is mounted
     setIsVisible(true);
   }, []);
 
   return (
     <footer
-      className={`transition-opacity duration-1000 ${
+      className={transition-opacity duration-1000 ${
         isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      }}
     >
       <div className="footer-content">
         <p>Paresh Dhok | Portfolio</p>
         <p>
           Electronics and Communication Engineering Student with expertise in
-          AI/ML,&nbsp;
-          <a
-            href="/DOWNLOADS.zip"
-            download
-            className="hover:underline text-blue-500 cursor-pointer"
-            title="Click to download"
-          >
-            IoT
-          </a>
-          , and Embedded Systems.
+          AI/ML, IoT, and Embedded Systems.
         </p>
       </div>
     </footer>

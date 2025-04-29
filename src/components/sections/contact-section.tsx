@@ -41,7 +41,7 @@ export function ContactSection() {
     {
       icon: <FaLinkedin className="h-5 w-5" />,
       name: "LinkedIn",
-      href: "https://linkedin.com/in/pareshdhok",
+      href: "https://instagram-hebuildapps.notion.site/codes-1e4fdb2e276f80109d13da8d94338274",
       hover: "hover:text-blue-600"
     },
     {

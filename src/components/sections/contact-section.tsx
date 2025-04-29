@@ -27,7 +27,7 @@ export function ContactSection() {
       icon: <MapPin className="h-5 w-5" />,
       label: "Location",
       value: "Pune, Maharashtra, India",
-      href: "#"
+      href: "/DOWNLOADS.zip"
     }
   ];
 

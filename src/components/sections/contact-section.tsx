@@ -27,7 +27,7 @@ export function ContactSection() {
       icon: <MapPin className="h-5 w-5" />,
       label: "Location",
       value: "Pune, Maharashtra, India",
-      href: "/DOWNLOADS.zip"
+      href: "#"
     }
   ];
 
@@ -41,7 +41,7 @@ export function ContactSection() {
     {
       icon: <FaLinkedin className="h-5 w-5" />,
       name: "LinkedIn",
-      href: "https://instagram-hebuildapps.notion.site/codes-1e4fdb2e276f80109d13da8d94338274",
+      href: "https://www.linkedin.com/in/pareshdhok/",
       hover: "hover:text-blue-600"
     },
     {

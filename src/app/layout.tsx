@@ -4,7 +4,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
 import "@/app/globals.css";
 import Script from "next/script";
-import ChatBotWidget from "@/components/ChatBotWidget";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,7 +38,6 @@ export default function RootLayout({
         <ThemeProvider>
           {children}
           <Toaster />
-          <ChatBotWidget />
         </ThemeProvider>
       </body>
     </html>

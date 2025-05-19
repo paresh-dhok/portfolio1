@@ -20,8 +20,8 @@ export function Chat() {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
 
-    const newMessages: Message[] = [...messages, { role: "user", content: input }];
-    setMessages(newMessages);
+    const userMessage: Message = { role: "user", content: input };
+    setMessages([...messages, userMessage]);
     setInput("");
     setIsLoading(true);
 
@@ -29,15 +29,20 @@ export function Chat() {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: newMessages }),
+        body: JSON.stringify({ messages: [...messages, userMessage] }),
       });
 
-      const data = await response.json();
-      if (response.ok) {
-        setMessages([...newMessages, { role: "assistant", content: data.response }]);
-      } else {
-        console.error("Failed to get response");
+      if (!response.ok) {
+        throw new Error("Failed to get response");
       }
+
+      const data = await response.json();
+      const assistantMessage: Message = {
+        role: "assistant",
+        content: data.response
+      };
+
+      setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {
       console.error("Error:", error);
     } finally {

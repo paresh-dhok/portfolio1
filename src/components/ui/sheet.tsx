@@ -3,14 +3,17 @@
 import * as React from "react"
 import * as SheetPrimitive from "@radix-ui/react-dialog"
 import { X } from "lucide-react"
-
 import { cn } from "@/lib/utils"
 
 const Sheet = SheetPrimitive.Root
 const SheetTrigger = SheetPrimitive.Trigger
 const SheetClose = SheetPrimitive.Close
 
-const SheetPortal = ({ className, ...props }: SheetPrimitive.DialogPortalProps) => (
+interface SheetPortalProps extends SheetPrimitive.DialogPortalProps {
+  className?: string;
+}
+
+const SheetPortal = ({ className, ...props }: SheetPortalProps) => (
   <SheetPrimitive.Portal className={cn(className)} {...props} />
 )
 SheetPortal.displayName = SheetPrimitive.Portal.displayName

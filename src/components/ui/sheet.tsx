@@ -10,28 +10,30 @@ const SheetTrigger = SheetPrimitive.Trigger
 const SheetClose = SheetPrimitive.Close
 
 interface SheetPortalProps extends SheetPrimitive.DialogPortalProps {
-  className?: string;
+  className?: string
 }
 
-const SheetPortal = ({ className, ...props }: SheetPortalProps) => (
-  <SheetPrimitive.Portal className={cn(className)} {...props} />
+const SheetPortal = ({ className, children, ...props }: SheetPortalProps) => (
+  <SheetPrimitive.Portal {...props}>
+    <div className={cn(className)}>{children}</div>
+  </SheetPrimitive.Portal>
 )
-SheetPortal.displayName = SheetPrimitive.Portal.displayName
+SheetPortal.displayName = "SheetPortal"
 
 const SheetOverlay = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Overlay
+    ref={ref}
     className={cn(
       "fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-all",
       className
     )}
     {...props}
-    ref={ref}
   />
 ))
-SheetOverlay.displayName = SheetPrimitive.Overlay.displayName
+SheetOverlay.displayName = "SheetOverlay"
 
 type SheetSide = "top" | "bottom" | "left" | "right"
 
@@ -71,7 +73,7 @@ const SheetContent = React.forwardRef<
     </SheetPrimitive.Content>
   </SheetPortal>
 ))
-SheetContent.displayName = SheetPrimitive.Content.displayName
+SheetContent.displayName = "SheetContent"
 
 const SheetHeader = ({
   className,
@@ -111,7 +113,7 @@ const SheetTitle = React.forwardRef<
     {...props}
   />
 ))
-SheetTitle.displayName = SheetPrimitive.Title.displayName
+SheetTitle.displayName = "SheetTitle"
 
 const SheetDescription = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Description>,
@@ -123,7 +125,7 @@ const SheetDescription = React.forwardRef<
     {...props}
   />
 ))
-SheetDescription.displayName = SheetPrimitive.Description.displayName
+SheetDescription.displayName = "SheetDescription"
 
 export {
   Sheet,

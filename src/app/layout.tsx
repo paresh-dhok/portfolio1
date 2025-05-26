@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
+import ChatBotWidget from "@/components/ChatBotWidget"; // Added import
 import "@/app/globals.css";
 import Script from "next/script";
 
@@ -38,6 +39,7 @@ export default function RootLayout({
         <ThemeProvider>
           {children}
           <Toaster />
+          <ChatBotWidget /> {/* Added ChatBotWidget */}
         </ThemeProvider>
       </body>
     </html>

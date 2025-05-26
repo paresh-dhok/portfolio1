@@ -29,7 +29,7 @@ export default function ChatBotWidget() {
       const res = await fetch("/api/ask-bot", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify({ question: question, history: messages }),
       });
       const data = await res.json();
       if (data.answer) {
